@@ -675,17 +675,19 @@
           openLikeShareLink(group.accessLink);
         };*/
         megaGifButton.onclick = () => {
-          // encode the whole text as before...
+          /*// encode the whole text as before...
           let encoded = encodeURIComponent(`${group.url}\n\n${group.name}`);
 
           // But make sure any %2B (encoding for '+') is double-encoded to %252B
           // so it survives Telegram's intermediate decode step inside the mini-app.
           encoded = encoded.replace(/%2B/g, "%252B");
 
-          const wa = `https://api.whatsapp.com/send?text=${encoded}`;
+          const wa = `https://api.whatsapp.com/send?text=${encoded}`;*/
           if (!group || !group.previewLink) return;
+          openLinkTelegramAware(group.previewLink);
+          /*if (!group || !group.previewLink) return;
           openLinkTelegramAware(wa);
-          // openLikeShareLink(group.previewLink)
+          // openLikeShareLink(group.previewLink)*/
         };
         accessButton.onclick = () => {
           if (!group || !group.accessLink) return;
